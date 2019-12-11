@@ -22,10 +22,16 @@ class Redirect(models.Model):
 
 @receiver(post_save, sender=Redirect)
 def save_redirect(sender, instance, **kwargs):
+  # Verifico que el nuvo redirect tenga el paramentro active en True
   if instance.active:
+    # Guardo o actualizo el registro en cache
     cache.set(instance.key, {"key": instance.key, "url": instance.url}, 3600)
+  # Borro el registro de la cache si se desactiva el registro
+  elif cache.get(instance.key):
+    cache.delete(instance.key)
 
 
 @receiver(post_delete, sender=Redirect)
 def delete_redirect(sender, instance, **kwargs):
+  # Borro el registro de la cache
   cache.delete(instance.key)
