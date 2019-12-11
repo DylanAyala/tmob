@@ -126,32 +126,32 @@ CACHES = {
   }
 }
 
-LOGGING = {
-  'version': 1,
-  'disable_existing_loggers': False,
-  'formatters': {
-    'verbose': {
-      'format': '%(levelname)s %(asctime)s %(module)s %(process)d %(thread)d %(message)s',
-      'datefmt': "%d/%m/%y %H:%M:%S",
-    },
-  },
-  'handlers': {
-    # Log to a text file
-    'logfile': {
-      'class': 'logging.handlers.WatchedFileHandler',
-      'filename': '/appuser/proyectos/tMob/logs/debug.log',
-      'formatter': 'verbose',
-    },
-  },
-  'loggers': {
-    'django': {
-      'handlers': ['logfile'],
-      'level': 'DEBUG',
-      'propagate': True,
-    },
-    'django.request': {
-      'handlers': ['logfile'],
-      'level': 'DEBUG'
-    },
-  },
-}
+# LOGGING = {
+#   'version': 1,
+#   'disable_existing_loggers': False,
+#   'formatters': {
+#     'verbose': {
+#       'format': '%(levelname)s %(asctime)s %(module)s %(process)d %(thread)d %(message)s',
+#       'datefmt': "%d/%m/%y %H:%M:%S",
+#     },
+#   },
+#   'handlers': {
+#     # Log to a text file
+#     'logfile': {
+#       'class': 'logging.handlers.WatchedFileHandler',
+#       'filename': '/appuser/proyectos/tMob/logs/debug.log',
+#       'formatter': 'verbose',
+#     },
+#   },
+#   'loggers': {
+#     'django': {
+#       'handlers': ['logfile'],
+#       'level': 'DEBUG',
+#       'propagate': True,
+#     },
+#     'django.request': {
+#       'handlers': ['logfile'],
+#       'level': 'DEBUG'
+#     },
+#   },
+# }
