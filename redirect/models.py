@@ -4,12 +4,17 @@ from django.dispatch import receiver
 from django.core.cache import cache
 
 
+class BaseManager(models.Manager):
+  pass
+
+
 class Redirect(models.Model):
   key = models.CharField(max_length=100, null=False)
   url = models.CharField(max_length=100, null=False)
   active = models.BooleanField(null=False, default=False)
   updated_at = models.DateTimeField(null=False, auto_now_add=True)
   created_at = models.DateTimeField(null=False, auto_now=True)
+  objects = BaseManager()
 
   def __str__(self):
     return self.key
